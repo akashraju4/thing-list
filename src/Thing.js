@@ -7,7 +7,7 @@ const Thing = ({ thing }) => {
             <input type="checkbox" value="on" />
             <div className="details">
                 <div className="name">
-                    {thing.name}
+                    {thing.text}
                 </div>
                 <span className="actions">
                 <button className="remove">
