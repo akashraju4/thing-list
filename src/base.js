@@ -1,6 +1,8 @@
 import Rebase from 're-base'
+import firebase from 'firebase/app'
+import database from 'firebase/database'
 
-export default Rebase.createClass({
+const app = firebase.initializeApp({
     apiKey: "AIzaSyCVUQoigHUrsRvj7DjrkVGC0snSGqobH98",
     authDomain: "thing-list-cb151.firebaseapp.com",
     databaseURL: "https://thing-list-cb151.firebaseio.com",
@@ -8,3 +10,6 @@ export default Rebase.createClass({
     storageBucket: "thing-list-cb151.appspot.com",
     messagingSenderId: "109010597794"
 })
+const db = database(app)
+
+export default Rebase.createClass(db)
