@@ -41,6 +41,7 @@ input[type="checkbox"] {
 .Thing .name {
   -ms-flex: 1 1 0%;
       flex: 1 1 0%;
+  font-family: 'Rogue Script', cursive;
 }
 .actions {
   -webkit-transition: 0.3s;
@@ -70,6 +71,6 @@ input[type="checkbox"] {
 }
 .Date {
   font-size: .75rem;
-  font-family: 'helvetica neue', sans-serif;
-  border: none;
+  font-family: 'Lucida Console', sans-serif;
+  border: lightblue outset;
 } 
