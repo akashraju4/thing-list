@@ -5,15 +5,6 @@ import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
 
 class App extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     thing: '',
-  //     things: [],
-  //   }
-  //   this.handleChange = this.handleChange.bind(this)
-  //   this.Add = this.Add.bind(this)
-  // }
    state = {
     things: {
       
