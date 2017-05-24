@@ -40,6 +40,7 @@ class App extends Component {
       id: `thing-${Date.now()}`,
       Name: '',
       checkbox: '',
+      date: '',
     }
   }
 

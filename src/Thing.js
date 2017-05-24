@@ -27,6 +27,11 @@ class Thing extends Component {
         thing.checkbox = ev.target.checked
         saveThing(thing)     
     }
+    updateDate = (ev) => {
+        const {thing, saveThing} = this.props
+        thing.date = ev.target.value
+        saveThing(thing) 
+    }
     
     render() {
         const {thing, removeThing} = this.props
@@ -45,6 +50,11 @@ class Thing extends Component {
                         onChange={this.updateName} 
                         onKeyPress={this.changeOnEnter}
                         ref={input => this.nameInput = input}
+                    />
+                    <input 
+                        type="date" 
+                        onChange={this.updateDate}
+                        defaultValue={thing.date}    
                     />        
                     <Actions thing={thing} removeThing={removeThing}/>
                 </div>
