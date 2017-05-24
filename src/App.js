@@ -39,6 +39,7 @@ class App extends Component {
     return {
       id: `thing-${Date.now()}`,
       Name: '',
+      checkbox: '',
     }
   }
 
@@ -48,7 +49,6 @@ class App extends Component {
     things[thing.id] = thing 
     this.setState({ things })
   }
-
   saveThing = (thing) => {
     const things = {...this.state.things}
     things[thing.id] = thing
