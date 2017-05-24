@@ -16,9 +16,7 @@ class App extends Component {
   // }
    state = {
     things: {
-      'thing-1': { id: 'thing-1', name: 'Milk' },
-      'thing-2': { id: 'thing-2', name: 'Bread' },
-      'thing-3': { id: 'thing-3', name: 'Bibb lettuce' },
+      
     }
   }
   // handleChange(ev) {
@@ -56,7 +54,16 @@ class App extends Component {
     this.setState({ things })
 
   }
+  removeThing = (thing) => {
+    const things = {...this.state.things}
+    delete things[thing.id]
+    this.setState({ things })
+  }
   render() {
+    const actions = {
+      saveThing: this.saveThing,
+      removeThing: this.removeThing,
+    }
     return (
       <div className="App">
         <Header />
@@ -64,7 +71,7 @@ class App extends Component {
         <AddThingButton addThing={this.addThing}/>
         {/*<textarea className="add-text" placeholder="Enter a Thing" value={this.state.thing} onChange={this.handleChange}></textarea>*/}
         </div>
-        <ThingList things={this.state.things} saveThing={this.saveThing}/>
+        <ThingList things={this.state.things} {...actions} />
       </div>
     )
   }
