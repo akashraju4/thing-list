@@ -52,9 +52,10 @@ class Thing extends Component {
                         ref={input => this.nameInput = input}
                     />
                     <input 
+                        className='Date'
                         type="date" 
                         onChange={this.updateDate}
-                        defaultValue={thing.date}    
+                        defaultValue={thing.date} 
                     />        
                     <Actions thing={thing} removeThing={removeThing}/>
                 </div>
