@@ -18,6 +18,7 @@ class Thing extends Component {
             ev.preventDefault()
             ev.target.blur()
         }
+        
     }
     render() {
         const {thing, removeThing} = this.props

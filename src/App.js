@@ -3,8 +3,18 @@ import './App.css';
 import Header from './Header'
 import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
+import base from './base'
 
 class App extends Component {
+   componentWillMount() {
+     base.syncState(
+       'things',
+       {
+         context: this,
+         state: 'things'
+       }
+     )
+   }
    state = {
     things: {
       
