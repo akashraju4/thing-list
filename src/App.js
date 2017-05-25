@@ -71,7 +71,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Logout />
+        <Login />
         <AddThingButton addThing={this.addThing}/>
         {/*<textarea className="add-text" placeholder="Enter a Thing" value={this.state.thing} onChange={this.handleChange}></textarea>*/}
         <ThingList things={this.state.things} {...actions} />
