@@ -39,7 +39,7 @@ class App extends Component {
     return {
       id: `thing-${Date.now()}`,
       Name: '',
-      checkbox: '',
+      checkbox: false,
       date: '',
     }
   }
