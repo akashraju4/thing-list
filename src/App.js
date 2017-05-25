@@ -4,6 +4,8 @@ import Header from './Header'
 import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
 import base from './base'
+import Login from './Login'
+import Logout from './Logout'
 
 class App extends Component {
    componentWillMount() {
@@ -69,10 +71,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="add">
+        <Logout />
         <AddThingButton addThing={this.addThing}/>
         {/*<textarea className="add-text" placeholder="Enter a Thing" value={this.state.thing} onChange={this.handleChange}></textarea>*/}
-        </div>
         <ThingList things={this.state.things} {...actions} />
       </div>
     )
