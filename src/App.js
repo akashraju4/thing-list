@@ -8,8 +8,22 @@ import Login from './Login'
 import Logout from './Logout'
 
 class App extends Component {
+   state = {
+    things: {}, 
+    uid: null
+   }
    componentWillMount() {
-     base.syncState(
+      auth.onAuthStateChanged(
+        (user) => {
+          if (user) {
+            this.authHandler({ user })
+          }
+        }
+      )
+   }
+
+   setupThings() {
+      this.ref = base.syncState(
        'things',
        {
          context: this,
@@ -17,11 +31,15 @@ class App extends Component {
        }
      )
    }
-   state = {
-    things: {
-      
-    }
-  }
+
+   authHandler = (authData) => {
+      this.setState(
+        { uid: authData.user.uid},
+        this.setupThings()
+      )
+
+   }
+  
   // handleChange(ev) {
   //   this.setState({
   //     thing: ev.target.value
@@ -64,21 +82,29 @@ class App extends Component {
     this.setState({ things })
   }
   Logout = () => {
-    auth.signOut()
+    auth
+      .signOut()
+      .then(() => this.setState({ uid: null }))
   }
-  render() {
+  renderThings() {
     const actions = {
       saveThing: this.saveThing,
       removeThing: this.removeThing,
     }
     return (
-      <div className="App">
-        <Header />
-        <Login />
+      <div>
         <Logout Logout={this.Logout} />
         <AddThingButton addThing={this.addThing}/>
         {/*<textarea className="add-text" placeholder="Enter a Thing" value={this.state.thing} onChange={this.handleChange}></textarea>*/}
         <ThingList things={this.state.things} {...actions} />
+      </div>
+    )
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        { this.state.uid ? this.renderThings() :  <Login authHandler={this.authHandler}/> }
       </div>
     )
   }
