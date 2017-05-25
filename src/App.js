@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header'
 import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
-import base from './base'
+import base, { auth } from './base'
 import Login from './Login'
 import Logout from './Logout'
 
@@ -63,6 +63,9 @@ class App extends Component {
     things[thing.id] = null
     this.setState({ things })
   }
+  Logout = () => {
+    auth.signOut()
+  }
   render() {
     const actions = {
       saveThing: this.saveThing,
@@ -72,6 +75,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Login />
+        <Logout Logout={this.Logout} />
         <AddThingButton addThing={this.addThing}/>
         {/*<textarea className="add-text" placeholder="Enter a Thing" value={this.state.thing} onChange={this.handleChange}></textarea>*/}
         <ThingList things={this.state.things} {...actions} />
