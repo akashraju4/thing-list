@@ -5,6 +5,7 @@ import './Thing.css'
 
 class Thing extends Component {
     componentDidMount() {
+        const {thing} = this.props
         if (!this.nameInput.htmlEl.textContent){
             this.nameInput.htmlEl.focus()
         }
@@ -13,10 +14,14 @@ class Thing extends Component {
         const {thing, saveThing} = this.props
         thing.Name = ev.target.value
         saveThing(thing)
+        if(ev.target.value === '')
+        {
+            alert('This is required!')
+        }
     }
 
     changeOnEnter = (ev) => {
-        const {thing, addThing} = this.props
+        const {addThing} = this.props
         if (ev.key === 'Enter') {
             ev.preventDefault()
             ev.target.blur()
@@ -52,6 +57,7 @@ class Thing extends Component {
                         onChange={this.updateName} 
                         onKeyPress={this.changeOnEnter}
                         ref={input => this.nameInput = input}
+                        disabled={thing.disabled}                        
                     />
                     <input 
                         className='Date'
