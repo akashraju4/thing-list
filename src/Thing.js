@@ -20,7 +20,7 @@ class Thing extends Component {
         if (ev.key === 'Enter') {
             ev.preventDefault()
             ev.target.blur()
-            addThing(thing)
+            addThing()
         }
         
     }
