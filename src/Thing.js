@@ -16,9 +16,11 @@ class Thing extends Component {
     }
 
     changeOnEnter = (ev) => {
+        const {thing, addThing} = this.props
         if (ev.key === 'Enter') {
             ev.preventDefault()
             ev.target.blur()
+            addThing(thing)
         }
         
     }
