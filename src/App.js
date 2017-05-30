@@ -6,7 +6,7 @@ import AddThingButton from './AddThingButton'
 import base, { auth } from './base'
 import Login from './Login'
 import Logout from './Logout'
-import Stickies from 'react-stickies'
+import ReactStickies from 'react-stickies'
 class App extends Component {
    state = {
     things: {}, 
@@ -85,7 +85,7 @@ class App extends Component {
         <AddThingButton addThing={this.addThing}/>
         {/*<textarea className="add-text" placeholder="Enter a Thing" value={this.state.thing} onChange={this.handleChange}></textarea>*/}
         <ThingList things={this.state.things} {...actions} />
-        <Stickies notes={this.notes}/>
+        <ReactStickies notes={this.notes}/>
       </div>
     )
   }
