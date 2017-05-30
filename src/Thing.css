@@ -43,6 +43,17 @@ input[type="checkbox"] {
       flex: 1 1 0%;
   font-family: 'Rogue Script', cursive;
 }
+
+.Date {
+  font-size: .75rem;
+  font-family: 'Lucida Console', sans-serif;
+  border: lightblue outset;
+} 
+
+.Thing:hover .actions {
+  opacity: 1;
+}
+
 .actions {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
@@ -51,9 +62,6 @@ input[type="checkbox"] {
   margin: -10px 0;
 }
 
-.Thing:hover .actions {
-  opacity: 1;
-}
 
 .actions button {
   border: 0;
@@ -69,8 +77,6 @@ input[type="checkbox"] {
 .actions button.remove:hover {
   color: #AD343E;
 }
-.Date {
-  font-size: .75rem;
-  font-family: 'Lucida Console', sans-serif;
-  border: lightblue outset;
-} 
+.actions button.highlight:hover {
+  color: green;
+}

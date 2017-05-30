@@ -6,11 +6,12 @@ import AddThingButton from './AddThingButton'
 import base, { auth } from './base'
 import Login from './Login'
 import Logout from './Logout'
-
+import Stickies from 'react-stickies'
 class App extends Component {
    state = {
     things: {}, 
-    uid: null
+    uid: null,
+    notes: []
    }
    componentWillMount() {
       auth.onAuthStateChanged(
@@ -39,21 +40,6 @@ class App extends Component {
       )
 
    }
-  
-  // handleChange(ev) {
-  //   this.setState({
-  //     thing: ev.target.value
-  //   })
-  // }
-  // Add(ev){
-  //   const state = {...this.state}
-  //   const thing = {
-  //      text: this.state.thing
-  //   }
-  //   state.things.push(thing)
-  //   state.thing = ''
-  //   this.setState(thing)
-  // }
 
   thing = () => {
     return {
@@ -61,6 +47,8 @@ class App extends Component {
       Name: '',
       checkbox: false,
       date: '',
+      notes: true,
+      color: ''
     }
   }
 
@@ -97,6 +85,7 @@ class App extends Component {
         <AddThingButton addThing={this.addThing}/>
         {/*<textarea className="add-text" placeholder="Enter a Thing" value={this.state.thing} onChange={this.handleChange}></textarea>*/}
         <ThingList things={this.state.things} {...actions} />
+        <Stickies notes={this.notes}/>
       </div>
     )
   }

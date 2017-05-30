@@ -1,11 +1,4 @@
 body {
-  background: #00b4ff;
+  background-color: moccasin
 }
-textarea.add-text {
-  border: 0;
-  border-radius: 5px;
-  width: 400px;
-  display: block;
-  margin: 0 auto;
-  padding: 20px;
-}
+

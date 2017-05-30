@@ -14,10 +14,10 @@ class Thing extends Component {
         const {thing, saveThing} = this.props
         thing.Name = ev.target.value
         saveThing(thing)
-        if(ev.target.value === '')
-        {
-            alert('This is required!')
-        }
+        // if(ev.target.value === '')
+        // {
+        //     alert('This is required!')
+        // }
     }
 
     changeOnEnter = (ev) => {
@@ -38,6 +38,11 @@ class Thing extends Component {
         const {thing, saveThing} = this.props
         thing.date = ev.target.value
         saveThing(thing) 
+    }
+    changeColor = (ev) => {
+        const {thing, saveThing} = this.props
+        thing. 
+        saveThing(thing)
     }
     
     render() {
@@ -65,7 +70,7 @@ class Thing extends Component {
                         onChange={this.updateDate}
                         defaultValue={thing.date} 
                     />        
-                    <Actions thing={thing} removeThing={removeThing}/>
+                    <Actions thing={thing} removeThing={removeThing} changeColor={this.changeColor}/>
                 </div>
             </li>
     )
